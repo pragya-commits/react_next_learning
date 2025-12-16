@@ -1,13 +1,34 @@
 import "./App.css";
-
 import Header from "./components/Header.jsx";
 import Card from "./components/Card.jsx";
 import Hero from "./components/Hero.jsx";
+import { Button } from "./components/ui/button.tsx";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "./components/ui/navigation-menu.tsx";
 
 function App() {
   return (
     <>
+      <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <NavigationMenuLink>Link</NavigationMenuLink>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
       <Hero />
+      <Button variant={"outline"} />
       <Header />
       <h1 className=" border-b-blue-400 bg-blue-950 text-white border-2 p-4 text-center text-3xl">
         ITS A DESIGN WORK PROJECT
