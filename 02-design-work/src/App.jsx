@@ -1,4 +1,5 @@
 import "./App.css";
+import Button from "./components/Button.jsx";
 import Card from "./components/Card.jsx";
 function App() {
   return (
@@ -10,9 +11,9 @@ function App() {
         <Card
           imageUrl="https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png"
           title="Join now javascript course"
-          buttonText="Pay Now"
           description="This is a javascript course , we are using tailwind in this course as a css.there are many projects in this course which you can add in your portfolio. "
         />
+
         <Card
           imageUrl="https://prod-discovery.edx-cdn.org/cdn-cgi/image/width=auto,height=auto,quality=75,format=webp/media/course/image/381a0046-5d78-4790-8776-74620d59f48e-e2e7f4677ce2.jpeg"
           title="Join now python course"
