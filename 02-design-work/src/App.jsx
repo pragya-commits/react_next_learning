@@ -1,13 +1,18 @@
 import "./App.css";
 import Button from "./components/Button.jsx";
+import Header from "./components/Header.jsx";
 import Card from "./components/Card.jsx";
+import Hero from "./components/Hero.jsx";
+
 function App() {
   return (
     <>
-      <h1 className="text-blue-600 dark:text-sky-400 border-2 p-4">
-        It's a Design work project
+      <Hero />
+      <Header />
+      <h1 className=" border-b-blue-400 bg-blue-950 text-white border-2 p-4 text-center text-3xl">
+        ITS A DESIGN WORK PROJECT
       </h1>
-      <div className="flex gap-4">
+      <div className="flex gap-4 text-center justify-center">
         <Card
           imageUrl="https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png"
           title="Join now javascript course"
