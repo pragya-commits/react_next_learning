@@ -1,5 +1,5 @@
 import "./App.css";
-import Button from "./components/Button.jsx";
+
 import Header from "./components/Header.jsx";
 import Card from "./components/Card.jsx";
 import Hero from "./components/Hero.jsx";
