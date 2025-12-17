@@ -23,10 +23,7 @@ export default function App() {
           Decrease
         </button>
 
-        <button
-          onClick={() => setCount((count) => 0)}
-          style={{ margin: "0 5px" }}
-        >
+        <button onClick={() => setCount(() => 0)} style={{ margin: "0 5px" }}>
           Reset
         </button>
       </div>
