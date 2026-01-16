@@ -1,7 +1,7 @@
 import React from "react";
 
 function ThemeToggler() {
-  return <div></div>;
+  return <div>ThemeToggler</div>;
 }
 
 export default ThemeToggler;
