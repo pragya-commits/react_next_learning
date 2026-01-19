@@ -4,11 +4,13 @@ import BasicProps from "./components/BasicProps.jsx";
 import ChildrenProps from "./components/ChildrenProps.jsx";
 import ComplexProps from "./components/ComplexProps.jsx";
 import RefProps from "./components/RefProps.jsx";
-import ThemeToggler from "./components/ThemeToggler.jsx";
-import ThemeProps from "./components/ThemeToggler.jsx";
+import ThemeToggler, {
+  ThemeProvider,
+  useTheme,
+} from "./components/ThemeToggler.jsx";
 
 function Navigation() {
-  const isDark = true;
+  const { isDark } = useTheme();
 
   const sections = [
     { id: "basic", label: "Basic Props", icon: "📦" },
@@ -20,14 +22,20 @@ function Navigation() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 shadow-md 
-    transition-colors ${isDark ? "bg-gray-800" : "bg-white"}`}
+      className={`sticky top-0 z-50 shadow-md transition-all duration-500 ${
+        isDark ? "bg-[#1E293B] text-white" : "bg-white text-gray-800"
+      }`}
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex flex-wrap gap-2 justify-center">
           {sections.map((section) => (
             <button
-              className={`px-4 py-2 rounded-lg font-medium transition-all bg-blue-600 text-white mr-5 mt-5 ml-5 hover:bg-blue-800`}
+              className={`px-4 py-2 rounded-lg font-medium transition-all mr-5 mt-5 ml-5
+                ${
+                  isDark
+                    ? "bg-blue-700 text-white hover:bg-blue-900"
+                    : "bg-blue-600 text-white hover:bg-blue-800"
+                }`}
               key={section.id}
             >
               <span className="mr-2">{section.icon}</span>
@@ -41,13 +49,19 @@ function Navigation() {
 }
 
 function AppContent() {
-  const isDark = true;
+  const { isDark } = useTheme();
+
   return (
-    <div className={`min-h-screen bg-gray-800 text-white`}>
+    <div
+      className={`min-h-screen transition-all duration-500 ${
+        isDark ? "bg-[#0F172A] text-white" : "bg-gray-100 text-gray-900"
+      }`}
+    >
       <Navigation />
+
       <div className="container mx-auto px-4 py-8">
         <header
-          className={`text-center mb-12 transition-colors ${
+          className={`text-center mb-12 transition-colors duration-500 ${
             isDark ? "text-white" : "text-gray-800"
           }`}
         >
@@ -58,25 +72,31 @@ function AppContent() {
             A comprehensive guide to understanding props in React
           </p>
         </header>
+
         <div className="space-y-8">
           <div id="basic" className="scroll-mt-200">
             <BasicProps />
           </div>
-          <div id="basic" className="scroll-mt-200">
+
+          <div id="children" className="scroll-mt-200">
             <ChildrenProps />
-          </div>{" "}
-          <div id="basic" className="scroll-mt-200">
+          </div>
+
+          <div id="complex" className="scroll-mt-200">
             <ComplexProps />
-          </div>{" "}
-          <div id="basic" className="scroll-mt-200">
+          </div>
+
+          <div id="ref" className="scroll-mt-200">
             <RefProps />
-          </div>{" "}
-          <div id="basic" className="scroll-mt-200">
+          </div>
+
+          <div id="theme" className="scroll-mt-200">
             <ThemeToggler />
           </div>
         </div>
+
         <footer
-          className={`mt-12 text-center pb-8 transition-colors ${
+          className={`mt-12 text-center pb-8 transition-all duration-500 ${
             isDark ? "text-gray-400" : "text-gray-600"
           }`}
         >
@@ -88,7 +108,11 @@ function AppContent() {
 }
 
 function App() {
-  return <AppContent />;
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  );
 }
 
 export default App;

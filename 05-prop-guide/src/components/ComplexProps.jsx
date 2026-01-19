@@ -1,5 +1,3 @@
-import React from "react";
-
 function UserProfileCard({ user, theme, actions }) {
   return (
     <div
